@@ -11,6 +11,7 @@ import { Text } from "@/styles/Text";
 import { useEffect, useState } from "react";
 import { FaGithub, FaShare } from "react-icons/fa";
 import { userData } from "@/utils/userData";
+import { applicationData } from "@/utils/applicationData";
 
 interface ReposType {
   id: number;
@@ -39,6 +40,8 @@ export const Project = (): JSX.Element => {
 
     fetchData();
   }, []);
+
+  console.log(repositories);
 
   return (
     <>
@@ -85,6 +88,15 @@ export const Project = (): JSX.Element => {
                   <FaShare /> See demo
                 </ProjectLink>
               )}
+              {applicationData.map((app) => {
+                return (
+                  app.app_name === repository.name && (
+                    <ProjectLink target="_blank" href={`${app.app_deploy}`}>
+                      <FaShare /> See deploy
+                    </ProjectLink>
+                  )
+                );
+              })}
             </ProjectLinks>
           </ProjectWrapper>
         ))}
