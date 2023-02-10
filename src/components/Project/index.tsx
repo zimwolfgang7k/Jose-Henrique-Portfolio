@@ -41,8 +41,6 @@ export const Project = (): JSX.Element => {
     fetchData();
   }, []);
 
-  console.log(repositories);
-
   return (
     <>
       {repositories &&
@@ -83,11 +81,11 @@ export const Project = (): JSX.Element => {
               <ProjectLink target="_blank" href={repository.html_url}>
                 <FaGithub /> Github Code
               </ProjectLink>
-              {repository.homepage && (
+              {/* {repository.homepage && (
                 <ProjectLink target="_blank" href={`${repository.homepage}`}>
                   <FaShare /> See demo
                 </ProjectLink>
-              )}
+              )} */}
               {applicationData.map((app) => {
                 return (
                   app.app_name === repository.name && (
